@@ -1,0 +1,10 @@
+Designing REST API-JSON
+
+GET/users -List all users
+GET/users/1,GET/users/2-Get the user with id 1 and 2 respectively
+
+POST/users-Create new user
+
+PATCH/users/1-Edit the user with id 1
+
+DELETE/users/1-Delete the user with id 1

@@ -1,0 +1,24 @@
+{
+  "name": "restapi",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Ankit-Silwal/RestAPI#readme",
+  "bugs": {
+    "url": "https://github.com/Ankit-Silwal/RestAPI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ankit-Silwal/RestAPI.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
