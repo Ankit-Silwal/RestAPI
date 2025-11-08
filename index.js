@@ -27,9 +27,19 @@ app.route('/api/users/:id').get((req,res)=>{
   const user=users.find(user=>user.id===id);
   return res.json(user);
 }).patch((req,res)=>{
-  return res.json({status:"Pending"})
+  const id=Number(req.params.id);
+  const user=users.find(user=>user.id===id);
+  Object.assign(user, req.body);
+  fs.writeFile('./MOCK_DATA.json',JSON.stringify(users),(err,data)=>{
+    return res.json({status:"success",user});
+  })
 }).delete((req,res)=>{
-  return res.json({status:"success",id:users.length+1})
+  const id=Number(req.params.id);
+  const userIndex=users.findIndex(user=>user.id===id);
+  const deletedUser=users.splice(userIndex,1);
+  fs.writeFile('./MOCK_DATA.json',JSON.stringify(users),(err,data)=>{
+    return res.json({status:"success",deletedUser});
+  })
 })
 
 
