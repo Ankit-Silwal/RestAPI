@@ -6,6 +6,20 @@ const app=express();
 const fs=require('fs');
 //Middleware =>Plugin
 app.use(express.urlencoded({extended:false}));
+app.use((req,res,next)=>{
+  fs.appendFile('log.txt',`\n${Date.now()}:${req.ip}:${req.method}:${req.path}`,
+  (err,data)=>{
+    next();
+  })
+})
+app.use((req,res,next)=>{
+  console.log("Hello from the middleware 2",req.myUserName);
+  //in future 
+  //do query
+  // //credit card info
+  // return res.creditCardNumer="123";
+  next();
+})
 app.get('/api/users',(req,res)=>{
   return res.json(users);
 })
